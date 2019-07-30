@@ -27,7 +27,7 @@ const Line = styled.div`
   margin: 5px;
 `;
 
-export default function Topnav(props) {
+export default function Topnav() {
   return (
     <NavWrapper>
       <Logo src={logo} />
