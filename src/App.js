@@ -2,20 +2,13 @@ import React from 'react';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import combinedReducers from './Reducers';
-
-const store = createStore(
-  combinedReducers,
-  {},
-  applyMiddleware(thunk)
-);
+import GraphCanvas from './Components/Graph'
 
 function App() {
   return (
-    <Provider store={store}>
       <div className="App">
-      
+      <GraphCanvas/>
       </div>
-    </Provider>
   );
 }
 
