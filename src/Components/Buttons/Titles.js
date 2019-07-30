@@ -26,7 +26,8 @@ font-size: 30px;
 align-items: center;
 display: flex;
 flex-direction: row;
-justify-content: center
+justify-content: center;
+color: ##100359;
 `
 const Alarm = styled.div`
 height: 300px;
@@ -39,6 +40,7 @@ align-items: center;
 display: flex;
 flex-direction: row;
 justify-content: center
+color: ##100359;
 `
 const SleepQ = styled.div`
 height: 300px;
