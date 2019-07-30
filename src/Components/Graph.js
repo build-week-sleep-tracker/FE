@@ -6,7 +6,9 @@ const GraphWrapper = styled.div`
     width: 100vw;
     background-color: rgb(229,225,248);
 `
+const GraphTitle = styled.div`
 
+`
 export default function GraphCanvas(){
     const [data, setData] = useState([]);
     const [options, setOptions] = useState([]);
