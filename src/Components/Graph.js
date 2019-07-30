@@ -5,9 +5,12 @@ import styled from "styled-components";
 const GraphWrapper = styled.div`
     width: 100vw;
     background-color: rgb(229,225,248);
+    padding: 0;
+    margin: 0;
 `
 const GraphTitle = styled.div`
-
+    display: flex;
+    background-color: rgb(229,225,248);
 `
 
 export default function GraphCanvas(){
@@ -72,9 +75,10 @@ export default function GraphCanvas(){
 
     return(
         <div>
-            <h2>Hours Slept</h2>
-            <h4>7/5 - 7/15</h4>
-
+            <GraphTitle>
+                <h2>Hours Slept</h2>
+                <h4>7/5 - 7/15</h4>
+            </GraphTitle>
             <GraphWrapper>
                 <Bar data={data} options={options}/>
             </GraphWrapper>
