@@ -1,18 +1,25 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import combinedReducers from "./Reducers";
-import ReduxThunk from "redux-thunk";
-import Titles from './Components/Buttons/Titles';
-
-const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App" />
-      <Titles />
-    </Provider>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
