@@ -7,6 +7,7 @@ export default function MainViews() {
         <div>
             <TopNav />
             <DashBoards />
+            <Titles />
         </div>
     )
 }
