@@ -9,6 +9,7 @@ const GraphWrapper = styled.div`
 const GraphTitle = styled.div`
 
 `
+
 export default function GraphCanvas(){
     const [data, setData] = useState([]);
     const [options, setOptions] = useState([]);
@@ -29,18 +30,40 @@ export default function GraphCanvas(){
                 xAxes: [{
                     barPercentage: .5,
                     gridLines: {
-                        offsetGridLines: true
+                        offsetGridLines: true,
+                        display: false,
                     }
                 }],
 
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        //suggestedMax: 100
-                    }
-                }]
-
-                
+                        callback: function(label) {
+                            switch (label) {
+                                case 0:
+                                    return '';
+                                case 1:
+                                    return '';
+                                case 2:
+                                    return 'Two';
+                                case 3:
+                                    return '';
+                                case 4:
+                                    return 'Four';
+                                case 5:
+                                    return '';
+                                case 6:
+                                    return 'Six';
+                                case 7:
+                                    return '';
+                                case 8:
+                                    return 'Eight';
+                                case 9:
+                                    return '';
+                                case 10:
+                                    return 'Ten';
+                        } } }
+                    }],
             }
 
           }
@@ -58,3 +81,4 @@ export default function GraphCanvas(){
         </div>
     )
 }
+
