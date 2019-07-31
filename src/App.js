@@ -13,7 +13,6 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-
 function App() {
   return (
     <Provider store={store}>
