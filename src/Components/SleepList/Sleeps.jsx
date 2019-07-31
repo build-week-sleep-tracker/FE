@@ -35,8 +35,8 @@ export default function Sleep(props) {
   return (
     <Wrapper>
       <SleepContainer>
-        <SleepText>asdfasdff</SleepText>
-        <SleepText>asdfasdff</SleepText>
+        <SleepText>{sleep.date}</SleepText>
+        <SleepText>{sleep.length}</SleepText>
       </SleepContainer>
     </Wrapper>
   );

@@ -15,10 +15,6 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App" />
-      {/* <Topnav />
-      <Titles /> */}
-      <Sleeps />
-      {/* <SleepList /> */}
     </Provider>
   );
 }
