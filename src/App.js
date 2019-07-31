@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
 import GraphCanvas from './Components/Graph'
 import MainViews from "./Views/MainView/MainViews";
+import Insights from './Components/Insights/Insights'
 
 const store = createStore(
   combinedReducers,
@@ -12,11 +13,10 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-
 function App() {
   return (
     <Provider store={store}>
-      <MainViews />
+     <Insights />
     </Provider>
   );
 }
