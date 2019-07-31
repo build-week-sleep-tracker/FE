@@ -3,7 +3,7 @@ import styled from "styled-components";
 import X from "../../images/X.svg";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
@@ -44,27 +44,12 @@ const LogTimeWrapper = styled.div``;
 
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      light: grey[50],
-      main: grey[50],
-      dark: grey[50],
-      contrastText: grey[50]
-    },
     secondary: {
-      light: grey[50],
-      main: grey[50],
-      dark: grey[50],
-      contrastText: grey[50]
-    },
-    error: {
-      light: grey[50],
-      main: grey[50],
-      dark: grey[50],
-      contrastText: grey[50]
+      main: "#FF0000"
     }
   }
 });
-
+/* 
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
@@ -75,21 +60,20 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     width: 200
   }
-}));
+})); */
 
 function TimeStartInput() {
-  const classes = useStyles();
   const [selectedDate, handleDateChange] = useState(new Date());
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <form className={classes.container} noValidate>
+      <form noValidate>
         <TextField
-          theme={theme.palette.primary}
+          color="secondary"
           id="time"
           label="Went To Bed:"
           type="time"
           defaultValue="07:30"
-          className={classes.textField}
+          // className={classes.textField}
           InputLabelProps={{
             shrink: true
           }}
@@ -99,6 +83,7 @@ function TimeStartInput() {
         />
 
         <DatePicker
+          color="secondary"
           label="Basic example"
           value={selectedDate}
           onChange={handleDateChange}
@@ -109,7 +94,7 @@ function TimeStartInput() {
   );
 }
 
-function TimeEndInput() {
+/* function TimeEndInput() {
   const classes = useStyles();
 
   return (
@@ -129,27 +114,29 @@ function TimeEndInput() {
       />
     </form>
   );
-}
+} */
 
 export default function TrackerLogInput() {
   return (
-    <Wrapper>
-      <ContainerBox>
-        <CloseButtonWrapper>
-          <CloseButtonDiv>
-            <img src={X} alt="close button" />
-          </CloseButtonDiv>
-        </CloseButtonWrapper>
-        <LogTextWrapper>
-          <LogText>Monday 12/31</LogText>
-          <LogText>7hr 47min</LogText>
-        </LogTextWrapper>
+    <MuiThemeProvider theme={theme}>
+      <Wrapper>
+        <ContainerBox>
+          <CloseButtonWrapper>
+            <CloseButtonDiv>
+              <img src={X} alt="close button" />
+            </CloseButtonDiv>
+          </CloseButtonWrapper>
+          <LogTextWrapper>
+            <LogText>Monday 12/31</LogText>
+            <LogText>7hr 47min</LogText>
+          </LogTextWrapper>
 
-        <LogTimeWrapper>
-          <TimeStartInput />
-          <TimeEndInput />
-        </LogTimeWrapper>
-      </ContainerBox>
-    </Wrapper>
+          <LogTimeWrapper>
+            <TimeStartInput />
+            {/* <TimeEndInput /> */}
+          </LogTimeWrapper>
+        </ContainerBox>
+      </Wrapper>
+    </MuiThemeProvider>
   );
 }
