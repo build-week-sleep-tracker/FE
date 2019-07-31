@@ -2,7 +2,12 @@ import { combineReducers } from 'redux';
 import * as types from '../Actions/types';
 
 const sleepState = {
-  sleeps: [],
+  sleeps: [
+    {
+      id: 1,
+      sleep_time: '2008-09-15T15:53:00',
+    }
+  ],
 }
 
 const userState = {
