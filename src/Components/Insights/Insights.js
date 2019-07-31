@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-
 import Insights1 from '../../images/Insights1.jpg';
 import Insights2 from '../../images/Insights2.jpg';
 import Insights3 from '../../images/Insights3.jpg';
@@ -13,6 +12,7 @@ height: 100%;
 border: 1px solid black;
 text-align: center;
 margin-top: 5px;
+background-color:#3421A1
 `;
 
 const MainInsight = styled.div`
