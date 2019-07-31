@@ -40,12 +40,55 @@ export const fetchSleeps = () => dispatch => {
       });
 };
 
-export const login = () => dispatch => {
-  return axios.get(CreateAPIUrl('login'))
+export const addSleep = (fields) => dispatch => {
+  return axiosWithAuth().post(CreateAPIUrl(`sleeps`), fields)
+    .then(res => {
+      dispatch(fetchSleeps());
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    });
+}
+
+export const updateSleep = (fields, id) => dispatch => {
+  return axiosWithAuth().put(CreateAPIUrl(`sleeps/${id}`), fields)
+    .then(res => {
+      dispatch(fetchSleeps());
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    });
+}
+
+export const deleteSleep = (id) => dispatch => {
+  return axiosWithAuth().delete(CreateAPIUrl(`sleeps/${id}`))
+    .then(res => {
+      dispatch(fetchSleeps());
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    });
+}
+
+
+export const login = (email, password) => dispatch => {
+  const body = { email, password };
+  return axios.post(CreateAPIUrl('login'), body)
     .then(res => {
       dispatch(setUser(res.data));
     })
     .catch(error => {
-      dispatch(setError(error))
+      dispatch(setError(error.message));
     });
 };
+
+export const register = (email, password, firstName, lastName) => dispatch => {
+  const body = { email, password, first_name: firstName, last_name: lastName };
+  return axios.post(CreateAPIUrl('register'), body)
+    .then(res => {
+      dispatch(setUser(res.data));
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    })
+}
