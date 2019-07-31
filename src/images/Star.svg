@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M12 17.27l5.17 3.12c.38.23.85-.11.75-.54l-1.37-5.88 4.56-3.95c.33-.29.16-.84-.29-.88l-6.01-.51-2.35-5.54c-.17-.41-.75-.41-.92 0L9.19 8.63l-6.01.51c-.44.04-.62.59-.28.88l4.56 3.95-1.37 5.88c-.1.43.37.77.75.54L12 17.27z"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="40px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.2 (81672) - https://sketch.com -->
+    <title>Star Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Dashboard" transform="translate(-76.000000, -540.000000)">
+            <g id="Sleep-Quality" transform="translate(0.000000, 510.000000)">
+                <g id="Star-Icon" transform="translate(75.500000, 30.000000)">
+                    <polygon id="Path" points="1 0 43 0 43 40 1 40"></polygon>
+                    <path d="M21.9942148,32.7740784 L33.6939316,39.8322406 C34.5538721,40.3525538 35.6174827,39.5833951 35.3911825,38.6106356 L32.2908708,25.3087146 L42.6101567,16.3729003 C43.3569471,15.7168531 42.9722369,14.4726258 41.9538863,14.3821366 L28.3532485,13.2283985 L23.0351954,0.695636177 C22.6504852,-0.231878726 21.3379444,-0.231878726 20.9532342,0.695636177 L15.6351812,13.2283985 L2.03454334,14.3821366 C1.03882276,14.4726258 0.63148253,15.7168531 1.40090297,16.3729003 L11.7201889,25.3087146 L8.61987713,38.6106356 C8.393577,39.5833951 9.45718761,40.3525538 10.3171281,39.8322406 L21.9942148,32.7740784 Z" id="Path" fill="#F6F4FF" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
