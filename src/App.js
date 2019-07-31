@@ -8,6 +8,7 @@ import SleepList from "./Components/SleepList";
 import Topnav from "./Components/Topnav";
 import TrackerLogInput from "./Components/Trackers/TrackerLogInput";
 import Sleeps from "./Components/SleepList/Sleeps";
+import MoodSlider from "./Components/Trackers/MoodSlider";
 
 const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App" />
+      <MoodSlider />
     </Provider>
   );
 }
