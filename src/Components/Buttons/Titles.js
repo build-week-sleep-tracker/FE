@@ -100,7 +100,7 @@ export default function Titles() {
         <Container>
         <LogSleep>
             <img src={Bed} />
-            <h3>Log Sleep</h3>
+            <h3>Sleep Log</h3>
         </LogSleep>
         <Alarm>
             <img src={Clock} />
