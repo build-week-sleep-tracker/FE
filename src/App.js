@@ -7,6 +7,8 @@ import Titles from "./Components/Buttons/Titles";
 import SleepList from "./Components/SleepList";
 import Topnav from "./Components/Topnav";
 import TrackerLogInput from "./Components/Trackers/TrackerLogInput";
+import Sleeps from "./Components/SleepList/Sleeps";
+
 const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
       <div className="App" />
       {/* <Topnav />
       <Titles /> */}
-      <TrackerLogInput />
+      <Sleeps />
       {/* <SleepList /> */}
     </Provider>
   );
