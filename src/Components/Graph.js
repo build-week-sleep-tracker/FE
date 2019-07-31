@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import styled from "styled-components";
 
+const FlexWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #BFB6F1;
+`
+
 const GraphWrapper = styled.div`
-    width: 100vw;
-    background-color: rgb(229,225,248);
-    padding: 0;
-    margin: 0;
+    width: 90vw;
+    background-color: #BFB6F1;
+    margin-left: 5vw;
 `
 const GraphTitle = styled.div`
-    display: flex;
-    background-color: rgb(229,225,248);
+    text-align: center;
+    justify-content: center;
+    background-color: #BFB6F1;
 `
 
 export default function GraphCanvas(){
@@ -29,6 +36,7 @@ export default function GraphCanvas(){
           setData(chartData);
 
           const chartOptions = {
+            legend: {display: false},
             scales: {
                 xAxes: [{
                     barPercentage: .5,
@@ -48,25 +56,27 @@ export default function GraphCanvas(){
                                 case 1:
                                     return '';
                                 case 2:
-                                    return 'Two';
+                                    return '2';
                                 case 3:
                                     return '';
                                 case 4:
-                                    return 'Four';
+                                    return '4';
                                 case 5:
                                     return '';
                                 case 6:
-                                    return 'Six';
+                                    return '6';
                                 case 7:
                                     return '';
                                 case 8:
-                                    return 'Eight';
+                                    return '8';
                                 case 9:
                                     return '';
                                 case 10:
-                                    return 'Ten';
-                        } } }
-                    }],
+                                    return '10';
+                            }       
+                        }
+                    }
+                }],
             }
 
           }
@@ -75,13 +85,15 @@ export default function GraphCanvas(){
 
     return(
         <div>
-            <GraphTitle>
-                <h2>Hours Slept</h2>
-                <h4>7/5 - 7/15</h4>
-            </GraphTitle>
-            <GraphWrapper>
-                <Bar data={data} options={options}/>
-            </GraphWrapper>
+            <FlexWrapper>
+                <GraphTitle>
+                    <h2>Hours Slept</h2>
+                    <h4>7/5 - 7/15</h4>
+                </GraphTitle>
+                <GraphWrapper>
+                    <Bar data={data} options={options}/>
+                </GraphWrapper>
+            </FlexWrapper>
         </div>
     )
 }
