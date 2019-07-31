@@ -5,14 +5,16 @@ import combinedReducers from "./Reducers";
 import ReduxThunk from "redux-thunk";
 import Titles from './Components/Buttons/Titles';
 import SleepList from './Components/SleepList';
+import MainViews from "./Views/MainView/MainViews";
+
 const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App" />
-      <Titles />
-      <SleepList />
+      <MainViews />
+      
     </Provider>
   );
 }
