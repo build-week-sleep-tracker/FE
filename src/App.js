@@ -1,24 +1,26 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import combinedReducers from "./Reducers";
-import ReduxThunk from "redux-thunk";
-import Titles from "./Components/Buttons/Titles";
-import SleepList from "./Components/SleepList";
-import Topnav from "./Components/Topnav";
-import TrackerLogInput from "./Components/Trackers/TrackerLogInput";
-const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
+import thunk from 'redux-thunk';
+import combinedReducers from './Reducers';
+import GraphCanvas from './Components/Graph'
+import MainViews from "./Views/MainView/MainViews";
+import Insights from './Components/Insights/Insights'
+
+const store = createStore(
+  combinedReducers,
+  {},
+  applyMiddleware(thunk)
+);
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App" />
-      {/* <Topnav />
-      <Titles /> */}
-      <TrackerLogInput />
-      {/* <SleepList /> */}
+     <Insights />
     </Provider>
   );
 }
+
+
 
 export default App;

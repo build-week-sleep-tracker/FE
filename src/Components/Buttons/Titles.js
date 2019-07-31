@@ -9,15 +9,15 @@ import Lightbulb from '../../images/Lightbulb.svg';
 
 
 const Container = styled.div`
-height: 400px;
-width: 100vw;
+height: 40rem;
+width: 100%;
 border: 1px solid black;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 `
 const LogSleep = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
@@ -26,10 +26,11 @@ font-size: 30px;
 align-items: center;
 display: flex;
 flex-direction: row;
-justify-content: center
+justify-content: center;
+color: ##100359;
 `
 const Alarm = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
@@ -39,9 +40,10 @@ align-items: center;
 display: flex;
 flex-direction: row;
 justify-content: center
+color: ##100359;
 `
 const SleepQ = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
@@ -54,7 +56,7 @@ flex-direction: row;
 justify-content: center
 `
 const Moods = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
@@ -67,7 +69,7 @@ flex-direction: row;
 justify-content: center
 `
 const Devices = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
@@ -80,14 +82,13 @@ flex-direction: row;
 justify-content: center
 `
 const Insights = styled.div`
-height: 300px;
+height: 30rem;
 width: 100%;
 border 1px solid black;
 text-align: center;
 background-color:#100359
 color: white;
 font-size: 30px;
-
 display: flex;
 flex-direction: row;
 justify-content: center
@@ -99,7 +100,7 @@ export default function Titles() {
         <Container>
         <LogSleep>
             <img src={Bed} />
-            <h3>Log Sleep</h3>
+            <h3>Sleep Log</h3>
         </LogSleep>
         <Alarm>
             <img src={Clock} />
