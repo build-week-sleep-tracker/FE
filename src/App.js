@@ -13,7 +13,6 @@ import TrackerInput from './Components/SleepList/TrackerLogAdd';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
 import SignIn from './Components/Signin';
-import Cookies from 'universal-cookie';
 
 const store = createStore(
   combinedReducers,
@@ -22,18 +21,36 @@ const store = createStore(
 );
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const cookies = new Cookies();
-  const session = localStorage.getItem('token');
   return (
     <Route
-      {...rest}
-      render={props =>
-        session ? (
+    {...rest}
+    render={props => {
+        const token = localStorage.getItem('token');
+        return token ? (
           <Component {...props} />
         ) : (
           <Redirect to="/login" />
         )
       }
+    }
+    />
+  );
+}
+
+const LoginRoute = ({ component: Component, ...rest }) => {
+  const token = localStorage.getItem('token');
+  return (
+    <Route
+    {...rest}
+      render={props => {
+        const token = localStorage.getItem('token');
+        return token ? (
+          <Redirect to="/" />
+          ) : (
+          <Component {...props} />
+        )
+      }
+    }
     />
   );
 }
@@ -44,7 +61,7 @@ function App() {
       <Router>
         <MuiThemeProvider theme={theme}>
           <PrivateRoute exact path='/' component={MainViews} />
-          <Route path='/login' component={LoginView} />
+          <LoginRoute path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
           {/* <PrivateRoute path='/sleeps' component={SleepView} /> */}
         </MuiThemeProvider>

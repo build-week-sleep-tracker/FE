@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { connect } from 'react-redux';
 import { login } from '../Actions/creators';
+import { Redirect } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
@@ -110,12 +111,6 @@ export function Signin(props) {
         props.history.push('/');
       })
   }
-
-  useEffect(() => {
-    if (localStorage.getItem('token')) {
-      props.history.push('/');
-    }
-  }, []);
 
   return (
     <Wrapper>

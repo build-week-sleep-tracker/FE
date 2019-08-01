@@ -82,8 +82,8 @@ export const login = (email, password) => dispatch => {
   const body = { email, password };
   return axios.post(CreateAPIUrl('login'), body)
     .then(res => {
-      dispatch(setUser(res.data.user));
       localStorage.setItem('token', res.data.token)
+      dispatch(setUser(res.data.user));
     })
     .catch(error => {
       dispatch(setError(error.message));
