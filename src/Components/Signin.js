@@ -50,6 +50,7 @@ const LabelText = styled.p`
   color: #100359;
   margin-bottom: 0;
   font-weight: 500;
+  margin: 10px 0 10px 0;
 `;
 
 const SignButtonsDiv = styled.div`

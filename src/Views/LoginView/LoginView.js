@@ -1,23 +1,23 @@
 import React from "react";
 import TopNav from "../../Components/Topnav";
-import Titles from "../../Components/Buttons/Titles";
-import GraphCanvas from "../../Components/Graph";
+import Signin from "../../Components/Signin";
 import Footer from "../../Components/Footer";
-
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100vw;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 100vh;
 `;
 
-// Holds all the components for the Home/Main page
+// Holds all the components for the Signup page
 
-export default function MainViews() {
+export default function RegisterView() {
   return (
     <Wrapper>
       <TopNav />
-      <GraphCanvas />
-      <Titles />
+      <Signin />
       <Footer />
     </Wrapper>
   );
