@@ -63,4 +63,5 @@ export default combineReducers({
   sleeps: sleepsReducer,
   user: userReducer,
   api: apiReducer,
+  menu: menuReducer,
 });
