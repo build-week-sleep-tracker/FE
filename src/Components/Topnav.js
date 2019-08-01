@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
+import { connect } from 'react-redux';
 
 const NavWrapper = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ const Line = styled.div`
   margin: 5px;
 `;
 
-export default function Topnav() {
+export default function Topnav(props) {
   return (
     <NavWrapper>
       <Logo src={logo} />
