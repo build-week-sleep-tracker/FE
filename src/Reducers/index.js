@@ -8,6 +8,7 @@ const sleepState = {
       sleep_time: '2008-09-15T15:53:00',
     }
   ],
+  currentSleep: 0,
 }
 
 const userState = {
@@ -23,6 +24,8 @@ export function sleepsReducer(state = sleepState, action) {
   switch(action.type) {
     case(types.SET_SLEEPS):
       return { ...state,  sleeps: action.payload};
+    case(types.SET_CURRENT_SLEEP):
+      return { ...state, currentSleep: action.payload };
     default:
       return state;
   }

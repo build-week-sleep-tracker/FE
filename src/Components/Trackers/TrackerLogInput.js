@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import grey from "@material-ui/core/colors/grey";
-import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { DatePicker, TimePicker ,MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
 const Wrapper = styled.div`
@@ -96,23 +96,33 @@ function TimeStartInput() {
 
 /* function TimeEndInput() {
   const classes = useStyles();
-
+  const [selectedDate, handleDateChange] = useState(new Date());
   return (
-    <form className={classes.container} noValidate>
-      <TextField
-        id="time"
-        label="Woke Up:"
-        type="time"
-        defaultValue="07:30"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true
-        }}
-        inputProps={{
-          step: 300 // 5 min
-        }}
-      />
-    </form>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <form className={classes.container} noValidate>
+        <TextField
+          id="time"
+          label="Woke Up:"
+          type="time"
+          defaultValue="07:30"
+          className={classes.textField}
+          InputLabelProps={{
+            shrink: true
+          }}
+          inputProps={{
+            step: 300 // 5 min
+          }}
+        />
+        <TimePicker
+          showTodayButton
+          todayLabel="now"
+          label="Step = 5"
+          value={selectedDate}
+          minutesStep={5}
+          onChange={handleDateChange}
+        />
+      </form>
+    </MuiPickersUtilsProvider>
   );
 } */
 

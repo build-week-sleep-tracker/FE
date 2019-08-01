@@ -11,7 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -147,4 +146,8 @@ body {
 
 body{
 	font-family: 'Sarabun', sans-serif;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85) !important;
 }
