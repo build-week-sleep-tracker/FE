@@ -29,22 +29,56 @@ export const setUser = (user) => {
   };
 }
 
+export const proccessSleeps = (sleeps) => {
+  let newSleeps = []
+  sleeps.forEach(sleep => {
+    let newSleep = { ...sleep };
+    if (sleep.sleep_time && sleep.wake_time) {
+      newSleep.sleepLength = (new Date(sleep.wake_time).getTime() - new Date(sleep.sleep_time).getTime())
+    } else {
+      newSleep.sleepLength = 0;
+    }
+    newSleep.date = new Date(sleep.sleep_time);
+    newSleeps.push(newSleep);
+  });
+  return newSleeps;
+}
+
 export const fetchSleeps = () => dispatch => {
   return axiosWithAuth()
       .get(CreateAPIUrl('sleeps'))
       .then(res => {
-          dispatch(setSleeps(res.data));
+          dispatch(setSleeps(proccessSleeps(res.data)));
       })
       .catch(error => {
           dispatch(setError(error.message));
       });
 };
 
+
 export const setCurrentSleep = (id) => {
   return {
     type: types.SET_CURRENT_SLEEP,
     payload: id,
   }
+}
+
+export const setRecommendedSleep = (rec) => {
+  return {
+    type: types.SET_RECOMMENDED_SLEEP,
+    payload: rec,
+  }
+}
+
+export const getRecommendedSleep = () => dispatch => {
+  return axiosWithAuth()
+    .get(CreateAPIUrl('sleep/recommended'))
+    .then((res) => {
+      dispatch(setRecommendedSleep(res.data.recommended));
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    });
 }
 
 export const addSleep = (fields) => dispatch => {
@@ -82,7 +116,8 @@ export const login = (email, password) => dispatch => {
   const body = { email, password };
   return axios.post(CreateAPIUrl('login'), body)
     .then(res => {
-      dispatch(setUser(res.data));
+      localStorage.setItem('token', res.data.token)
+      dispatch(setUser(res.data.user));
     })
     .catch(error => {
       dispatch(setError(error.message));
@@ -93,7 +128,8 @@ export const register = (email, password, firstName, lastName) => dispatch => {
   const body = { email, password, first_name: firstName, last_name: lastName };
   return axios.post(CreateAPIUrl('register'), body)
     .then(res => {
-      dispatch(setUser(res.data));
+      dispatch(setUser(res.data.user));
+      localStorage.setItem('token', res.data.token)
     })
     .catch(error => {
       dispatch(setError(error.message));
