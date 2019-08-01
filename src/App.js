@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
 import GraphCanvas from './Components/Graph'
-import MainViews from "./Views/MainView/MainViews";
+/* import MainViews from "./Views/MainView/MainViews";
 import LoginView from './Views/LoginView';
 import RegisterView from './Views/RegisterView';
-import SleepView from './Views/SleepView';
-import TrackerInput from './Components/Trackers/TrackerLogInput';
+import SleepView from './Views/SleepView'; */
+import TrackerInput from './Components/SleepList/TrackerLogAdd';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
 import Cookies from 'universal-cookie';
@@ -42,10 +42,11 @@ function App() {
     <Provider store={store}>
       <Router>
         <MuiThemeProvider theme={theme}>
-          <PrivateRoute exact path='/' component={MainViews} />
+{/*           <PrivateRoute exact path='/' component={MainViews} />
           <Route path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
-          <PrivateRoute path='/sleeps' component={SleepView} />
+          <PrivateRoute path='/sleeps' component={SleepView} /> */}
+          <TrackerInput />
         </MuiThemeProvider>
       </Router>
     </Provider>
