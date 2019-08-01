@@ -6,9 +6,9 @@ import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
 import GraphCanvas from './Components/Graph'
 import MainViews from "./Views/MainView/MainViews";
-import LoginView from './Views/LoginView';
-import RegisterView from './Views/RegisterView';
-import SleepView from './Views/SleepView';
+import LoginView from './Views/LoginView/LoginView';
+import RegisterView from './Views/RegisterView/RegisterView';
+// import SleepView from './Views/SleepView';
 import TrackerInput from './Components/Trackers/TrackerLogInput';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
@@ -30,8 +30,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
         session ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/login" />
-        )
+            <Redirect to="/login" />
+          )
       }
     />
   );
