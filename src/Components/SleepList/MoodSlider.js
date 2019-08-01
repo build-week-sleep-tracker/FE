@@ -23,18 +23,7 @@ const Emoji = styled.p`
   padding: 8px;
 `;
 
-// const ButtonsDiv = styled.div`
-//   display: flex;
-//   flex-flow: row nowrap;
-// `;
-
-// const Edit = styled.button``;
-
-// const Save = styled.button``;
-
 const SliderDiv = styled.div``;
-
-// const SliderInput = styled.input``;
 
 export default function MoodSlider() {
   const sliderRef = React.createRef();
