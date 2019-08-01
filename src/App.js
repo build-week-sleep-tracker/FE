@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -20,7 +21,31 @@ function App() {
         </a>
       </header>
     </div>
+=======
+import React from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from 'redux-thunk';
+import combinedReducers from './Reducers';
+import GraphCanvas from './Components/Graph'
+import MainViews from "./Views/MainView/MainViews";
+
+const store = createStore(
+  combinedReducers,
+  {},
+  applyMiddleware(thunk)
+);
+
+
+function App() {
+  return (
+    <Provider store={store}>
+      <MainViews />
+    </Provider>
+>>>>>>> development
   );
 }
+
+
 
 export default App;
