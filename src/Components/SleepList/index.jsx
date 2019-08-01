@@ -10,6 +10,7 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 88.2vh;
 `;
 
 class SleepList extends React.Component {

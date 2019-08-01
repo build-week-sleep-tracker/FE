@@ -6,6 +6,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 500;
 `;
 
 const SleepContainerWrapper = styled.div`
@@ -14,15 +17,15 @@ const SleepContainerWrapper = styled.div`
   flex-flow: column nowrap;
   width: 100%;
   align-items: center;
-  margin: 10px;
+  margin: 0.3rem;;
 `;
 
 const SleepContainer = styled.li`
   width: 92.5%;
-  height: 2.4rem;
+  height: 3.8rem;
   border-radius: 0.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: #100359;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
