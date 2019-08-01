@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
@@ -12,26 +12,47 @@ import RegisterView from './Views/RegisterView/RegisterView';
 import TrackerInput from './Components/Trackers/TrackerLogInput';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
-import Cookies from 'universal-cookie';
+import SignIn from './Components/Signin';
 
 const store = createStore(
   combinedReducers,
   {},
-  applyMiddleware(thunk)
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const cookies = new Cookies();
-  const session = cookies.get('sessionID');
   return (
     <Route
       {...rest}
-      render={props =>
-        session ? (
+      render={props => {
+        const token = localStorage.getItem('token');
+        return token ? (
           <Component {...props} />
         ) : (
             <Redirect to="/login" />
           )
+      }
+      }
+    />
+  );
+}
+
+const LoginRoute = ({ component: Component, ...rest }) => {
+  const token = localStorage.getItem('token');
+  return (
+    <Route
+      {...rest}
+      render={props => {
+        const token = localStorage.getItem('token');
+        return token ? (
+          <Redirect to="/" />
+        ) : (
+            <Component {...props} />
+          )
+      }
       }
     />
   );
@@ -43,9 +64,9 @@ function App() {
       <Router>
         <MuiThemeProvider theme={theme}>
           <PrivateRoute exact path='/' component={MainViews} />
-          <Route path='/login' component={LoginView} />
+          <LoginRoute path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
-          <PrivateRoute path='/sleeps' component={SleepView} />
+          <PrivateRoute path='/sleeps' component={SleepsView} />
         </MuiThemeProvider>
       </Router>
     </Provider>
