@@ -8,7 +8,7 @@ import GraphCanvas from './Components/Graph'
 import MainViews from "./Views/MainView";
 import LoginView from './Views/LoginView';
 import RegisterView from './Views/RegisterView';
-// import SleepView from './Views/SleepView';
+import SleepsView from './Views/SleepsView';
 import TrackerInput from './Components/SleepList/TrackerLogAdd';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
@@ -66,7 +66,7 @@ function App() {
           <PrivateRoute exact path='/' component={MainViews} />
           <LoginRoute path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
-          {/* <PrivateRoute path='/sleeps' component={SleepView} /> */}
+          <PrivateRoute path='/sleeps' component={SleepsView} />
         </MuiThemeProvider>
       </Router>
     </Provider>

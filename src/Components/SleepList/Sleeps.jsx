@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import moment from 'moment';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +13,6 @@ const SleepContainerWrapper = styled.div`
   justify-content: center;
   flex-flow: column nowrap;
   width: 100%;
-  height: 500px;
   align-items: center;
   margin: 10px;
 `;
@@ -43,13 +43,15 @@ const SleepText = styled.p`
 
 export default function Sleep(props) {
   const { sleep } = props;
-
+  const formattedDate = moment(sleep.date).format('dddd DD/MM');
+  var tempTime = moment.duration(sleep.sleepLength);
+  var formattedTime = `${tempTime.hours()}hr${tempTime.minutes()}mins`;
   return (
     <Wrapper>
       <SleepContainerWrapper>
         <SleepContainer>
-          <SleepText>Monday 12/31</SleepText>
-          <SleepText>7hr 47min</SleepText>
+          <SleepText>{formattedDate}</SleepText>
+          <SleepText>{formattedTime}</SleepText>
         </SleepContainer>
       </SleepContainerWrapper>
     </Wrapper>
