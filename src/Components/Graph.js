@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import styled from "styled-components";
+import sleepData from "../sleepData"
 
 const GraphWrapper = styled.div`
     width: 100vw;
@@ -13,22 +14,23 @@ const GraphTitle = styled.div`
     background-color: rgb(229,225,248);
 `
 
-export default function GraphCanvas(){
+export default function GraphCanvas() {
     const [data, setData] = useState([]);
     const [options, setOptions] = useState([]);
+    const sleepHours = sleepData.sleepHours
 
-    useEffect(() =>{
+    useEffect(() => {
         const chartData = {
-            labels: ['','','','','','','','',''],
+            labels: ['', '', '', '', '', '', '', '', ''],
             datasets: [{
                 label: '',
-                data: [9,7,8,5,9,8,7,10,9],
-                backgroundColor:'rgb(17,3,89)'
-              }]
-          }
-          setData(chartData);
+                data: [5, 4, 3, 2, 1, 2, 3, 4, 5],
+                backgroundColor: 'rgb(17,3,89)'
+            }]
+        }
+        setData(chartData);
 
-          const chartOptions = {
+        const chartOptions = {
             scales: {
                 xAxes: [{
                     barPercentage: .5,
@@ -41,7 +43,7 @@ export default function GraphCanvas(){
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        callback: function(label) {
+                        callback: function (label) {
                             switch (label) {
                                 case 0:
                                     return '';
@@ -65,22 +67,24 @@ export default function GraphCanvas(){
                                     return '';
                                 case 10:
                                     return 'Ten';
-                        } } }
-                    }],
+                            }
+                        }
+                    }
+                }],
             }
 
-          }
-          setOptions(chartOptions)
+        }
+        setOptions(chartOptions)
     }, [])
 
-    return(
+    return (
         <div>
             <GraphTitle>
                 <h2>Hours Slept</h2>
                 <h4>7/5 - 7/15</h4>
             </GraphTitle>
             <GraphWrapper>
-                <Bar data={data} options={options}/>
+                <Bar data={data} options={options} />
             </GraphWrapper>
         </div>
     )

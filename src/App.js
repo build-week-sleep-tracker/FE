@@ -13,6 +13,7 @@ import TrackerInput from './Components/Trackers/TrackerLogInput';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
 import SignIn from './Components/Signin';
+import CharacterList from "./Components/CharacterList"
 
 const store = createStore(
   combinedReducers,
@@ -67,6 +68,7 @@ function App() {
           <LoginRoute path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
           <PrivateRoute path='/sleeps' component={SleepsView} />
+          <Route path='/characters' component={CharacterList} />
         </MuiThemeProvider>
       </Router>
     </Provider>

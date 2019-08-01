@@ -58,10 +58,12 @@ export default function Titles() {
           <h3>Sleep Log</h3>
         </LogSleep>
       </Link>
-      <Moods>
-        <img src={Face} />
-        <h3>Moods</h3>
-      </Moods>
+      <Link to='/characters'>
+        <Moods>
+          <img src={Face} />
+          <h3>Moods</h3>
+        </Moods>
+      </Link>
       <Insights>
         <img src={Lightbulb} />
         <h3>Insights</h3>
