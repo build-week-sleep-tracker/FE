@@ -40,6 +40,13 @@ export const fetchSleeps = () => dispatch => {
       });
 };
 
+export const setCurrentSleep = (id) => {
+  return {
+    type: types.SET_CURRENT_SLEEP,
+    payload: id,
+  }
+}
+
 export const addSleep = (fields) => dispatch => {
   return axiosWithAuth().post(CreateAPIUrl(`sleeps`), fields)
     .then(res => {
