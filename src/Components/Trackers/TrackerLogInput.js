@@ -1,152 +1,116 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import X from "../../images/X.svg";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import grey from "@material-ui/core/colors/grey";
 import { DatePicker, TimePicker ,MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
+import * as Colors from '../../Styling/colors';
+import color from 'color';
 
-const Wrapper = styled.div`
+
+const backgroundColor = color(Colors.secondary).alpha(0.6).string();
+
+const ModalWrapper = styled.div`
+  position: fixed;
+  overflow: hidden;
+  background: ${backgroundColor};
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
-const ContainerBox = styled.div`
-  height: 70vh;
-  width: 95%;
-  background-color: #100359;
-`;
-
-const CloseButtonWrapper = styled.div`
+const Modal = styled.div`
+  color: rgba(255, 255, 255, 0.87);
+  position: relative;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: ${Colors.secondary};
+  width: 95vw;
+  height: 110vw;
+  border-radius: 3vw;
 `;
 
-const CloseButtonDiv = styled.div`
+const Title = styled.h2`
+  font-size: 1.6rem;
+  font-weight: 500;
+`;
+
+const CloseButton = styled.div`
+  display: flex;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  justify-content: flex-end;
   margin: 5px 5px 0 0;
 `;
 
-const LogTextWrapper = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  margin-top: 20px;
-`;
-
-const LogText = styled.p`
-  color: #fff;
-  margin: 5px;
-`;
-
-const LogTimeWrapper = styled.div``;
-
-const theme = createMuiTheme({
-  palette: {
-    secondary: {
-      main: "#FF0000"
-    }
+const StyledPicker = styled.div`
+  width: 10rem;
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
   }
-});
-/* 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200
-  }
-})); */
+`;
 
 function TimeStartInput() {
   const [selectedDate, handleDateChange] = useState(new Date());
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <form noValidate>
-        <TextField
-          color="secondary"
-          id="time"
-          label="Went To Bed:"
-          type="time"
-          defaultValue="07:30"
-          // className={classes.textField}
-          InputLabelProps={{
-            shrink: true
-          }}
-          inputProps={{
-            step: 300 // 5 min
-          }}
-        />
-
-        <DatePicker
-          color="secondary"
-          label="Basic example"
-          value={selectedDate}
-          onChange={handleDateChange}
-          animateYearScrolling
-        />
-      </form>
-    </MuiPickersUtilsProvider>
+      <TimePicker
+        showTodayButton
+        todayLabel="now"
+        value={selectedDate}
+        minutesStep={5}
+        onChange={handleDateChange}
+      />
   );
 }
 
-/* function TimeEndInput() {
-  const classes = useStyles();
+function TimeEndInput() {
+  const [selectedDate, handleDateChange] = useState(new Date());
+  return (
+      <TimePicker
+        showTodayButton
+        todayLabel="now"
+        value={selectedDate}
+        minutesStep={5}
+        onChange={handleDateChange}
+      />
+  );
+}
+
+export default function TrackerLogInput() {
   const [selectedDate, handleDateChange] = useState(new Date());
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <form className={classes.container} noValidate>
-        <TextField
-          id="time"
-          label="Woke Up:"
-          type="time"
-          defaultValue="07:30"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true
-          }}
-          inputProps={{
-            step: 300 // 5 min
-          }}
-        />
-        <TimePicker
-          showTodayButton
-          todayLabel="now"
-          label="Step = 5"
-          value={selectedDate}
-          minutesStep={5}
-          onChange={handleDateChange}
-        />
-      </form>
-    </MuiPickersUtilsProvider>
-  );
-} */
-
-export default function TrackerLogInput() {
-  return (
-    <MuiThemeProvider theme={theme}>
-      <Wrapper>
-        <ContainerBox>
-          <CloseButtonWrapper>
-            <CloseButtonDiv>
-              <img src={X} alt="close button" />
-            </CloseButtonDiv>
-          </CloseButtonWrapper>
-          <LogTextWrapper>
-            <LogText>Monday 12/31</LogText>
-            <LogText>7hr 47min</LogText>
-          </LogTextWrapper>
-
-          <LogTimeWrapper>
+      <ModalWrapper>
+        <Modal>
+          <Title>Add Sleep Log</Title>
+          <CloseButton>
+            <img src={X} alt="close button" />
+          </CloseButton>
+          <StyledPicker>
+            <h3>Date:</h3>
+            <DatePicker
+              value={selectedDate}
+              onChange={handleDateChange}
+              animateYearScrolling
+            />
+          </StyledPicker>
+          <StyledPicker>
+            <h3>Went to Bed:</h3>
             <TimeStartInput />
-            {/* <TimeEndInput /> */}
-          </LogTimeWrapper>
-        </ContainerBox>
-      </Wrapper>
-    </MuiThemeProvider>
+          </StyledPicker>
+          <StyledPicker>
+            <h3>Woke Up:</h3>
+            <TimeEndInput />
+          </StyledPicker>
+        </Modal>
+      </ModalWrapper>
+    </MuiPickersUtilsProvider>
   );
 }
