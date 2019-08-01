@@ -8,7 +8,7 @@ import GraphCanvas from './Components/Graph'
 import MainViews from "./Views/MainView/";
 import LoginView from './Views/LoginView/';
 import RegisterView from './Views/RegisterView/';
-import SleepView from './Views/SleepsView';
+import SleepsView from './Views/SleepsView';
 import TrackerInput from './Components/Trackers/TrackerLogInput';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
