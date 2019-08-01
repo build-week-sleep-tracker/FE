@@ -7,6 +7,9 @@ const FlexWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     background-color: #E5E1F8;
+    box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+    z-index: 10;
+    padding: 1px;
 `
 
 const GraphWrapper = styled.div`

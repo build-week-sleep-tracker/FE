@@ -19,8 +19,6 @@ function App() {
   return (
     <Provider store={store}>
       <MainViews />
-      <SigninViews />
-      <SignupViews />
     </Provider>
   );
 }
