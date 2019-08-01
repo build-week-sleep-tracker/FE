@@ -10,15 +10,16 @@ import Lightbulb from "../../images/Lightbulb.svg";
 const Container = styled.div`
   height: 40rem;
   width: 100%;
-  border: 1px solid black;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 const LogSleep = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color:#BFB6F1
 font-size: 30px;
@@ -29,9 +30,10 @@ justify-content: center;
 color: ##100359;
 `;
 const Alarm = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color:#9D90EA;
 font-size: 30px;
@@ -42,9 +44,10 @@ justify-content: center
 color: ##100359;
 `;
 const SleepQ = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color: #6F5BE0
 color: white;
@@ -55,9 +58,10 @@ flex-direction: row;
 justify-content: center
 `;
 const Moods = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color: #4D35D4
 color: white;
@@ -68,9 +72,10 @@ flex-direction: row;
 justify-content: center
 `;
 const Devices = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color:#3421A1
 color: white;
@@ -81,9 +86,10 @@ flex-direction: row;
 justify-content: center
 `;
 const Insights = styled.div`
+box-sizing: border-box;
+border 1px solid black;
 height: 30rem;
 width: 100%;
-border 1px solid black;
 text-align: center;
 background-color:#100359
 color: white;
