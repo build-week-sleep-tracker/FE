@@ -29,16 +29,31 @@ export const setUser = (user) => {
   };
 }
 
+export const proccessSleeps = (sleeps) => {
+  let newSleeps = []
+  sleeps.forEach(sleep => {
+    let newSleep = { ...sleep };
+    if (sleep.sleep_time && sleep.wake_time) {
+      newSleep.sleepLength = (new Date(sleep.wake_time).getTime() - new Date(sleep.sleep_time).getTime())
+    } else {
+      newSleep.sleepLength = 0;
+    }
+    newSleep.date = new Date(sleep.sleep_time);
+    newSleeps.push(newSleep);
+  });
+}
+
 export const fetchSleeps = () => dispatch => {
   return axiosWithAuth()
       .get(CreateAPIUrl('sleeps'))
       .then(res => {
-          dispatch(setSleeps(res.data));
+          dispatch(setSleeps(proccessSleeps(res.data)));
       })
       .catch(error => {
           dispatch(setError(error.message));
       });
 };
+
 
 export const setCurrentSleep = (id) => {
   return {
