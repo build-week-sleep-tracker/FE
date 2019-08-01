@@ -6,6 +6,8 @@ import DateFnsUtils from "@date-io/date-fns";
 import * as Colors from '../../Styling/colors';
 import color from 'color';
 import MoodSlider from './MoodSlider';
+import { connect } from 'react-redux';
+import { toggleSleepModal, updateSleep, addSleep, deleteSleep } from '../../Actions/creators';
 
 const backgroundColor = color(Colors.secondary).alpha(0.6).string();
 
@@ -83,35 +85,57 @@ function TimeEndInput() {
   );
 }
 
-export default function TrackerLogInput() {
+export function TrackerLogInput(props) {
   const [selectedDate, handleDateChange] = useState(new Date());
-  return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <ModalWrapper>
-        <Modal>
-          <Title>Add Sleep Log</Title>
-          <CloseButton>
-            <img src={X} alt="close button" />
-          </CloseButton>
-          <StyledPicker>
-            <h3>Date:</h3>
-            <DatePicker
-              value={selectedDate}
-              onChange={handleDateChange}
-              animateYearScrolling
-            />
-          </StyledPicker>
-          <StyledPicker>
-            <h3>Went to Bed:</h3>
-            <TimeStartInput />
-          </StyledPicker>
-          <StyledPicker>
-            <h3>Woke Up:</h3>
-            <TimeEndInput />
-          </StyledPicker>
-          <MoodSlider />
-        </Modal>
-      </ModalWrapper>
-    </MuiPickersUtilsProvider>
-  );
+  if (props.modalState) {
+    return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <ModalWrapper>
+          <Modal>
+            <Title>Add Sleep Log</Title>
+            <CloseButton>
+              <img src={X} alt="close button" />
+            </CloseButton>
+            <StyledPicker>
+              <h3>Date:</h3>
+              <DatePicker
+                value={selectedDate}
+                onChange={handleDateChange}
+                animateYearScrolling
+              />
+            </StyledPicker>
+            <StyledPicker>
+              <h3>Went to Bed:</h3>
+              <TimeStartInput />
+            </StyledPicker>
+            <StyledPicker>
+              <h3>Woke Up:</h3>
+              <TimeEndInput />
+            </StyledPicker>
+            <MoodSlider />
+          </Modal>
+        </ModalWrapper>
+      </MuiPickersUtilsProvider>
+    );
+  } else {
+    return null;
+  }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    currentSleep: state.sleeps.currentSleep,
+    sleeps: state.sleeps.sleeps,
+    modalState: state.menu.sleepModalState,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    toggleSleepModal,
+    updateSleep,
+    addSleep,
+    deleteSleep,
+  }
+)(TrackerLogInput);

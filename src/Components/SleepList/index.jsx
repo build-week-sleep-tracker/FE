@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { fetchSleeps } from '../../Actions/creators';
 import Sleep from './Sleeps';
-
+import SleepModal from './TrackerLogAdd';
 
 const StyledList = styled.ul`
   width: 100%;
@@ -27,6 +27,7 @@ class SleepList extends React.Component {
             return <Sleep key={sleep.id} sleep={sleep} />
           })
         }
+        <SleepModal />
       </StyledList>
     );
   }
