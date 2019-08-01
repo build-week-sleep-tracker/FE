@@ -15,6 +15,9 @@ const apiState = {
   error: null,
 }
 
+const menuState = {
+  sleepModalState: false,
+}
 
 export function sleepsReducer(state = sleepState, action) {
   switch(action.type) {
@@ -33,6 +36,15 @@ export function userReducer(state = userState, action) {
   switch(action.type) {
     case(types.SET_USER):
       return { ...state, user: action.payload }
+    default:
+      return state;
+  }
+}
+
+export function menuReducer(state = menuState, action) {
+  switch(action.type) {
+    case(types.TOGGLE_SLEEP_MODAL):
+      return { ...state, sleepModalState: !state.sleepModalState };
     default:
       return state;
   }

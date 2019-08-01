@@ -29,6 +29,12 @@ export const setUser = (user) => {
   };
 }
 
+export const toggleSleepModal = () => {
+  return {
+    type: types.TOGGLE_SLEEP_MODAL,
+  }
+}
+
 export const proccessSleeps = (sleeps) => {
   let newSleeps = []
   sleeps.forEach(sleep => {
