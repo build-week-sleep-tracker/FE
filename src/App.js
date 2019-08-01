@@ -12,6 +12,7 @@ import MoodSlider from "./Components/SleepList/MoodSlider";
 import MainViews from "./Views/MainView/MainViews";
 import RegisterView from "./Views/RegisterView/RegisterView";
 import LoginView from "./Views/LoginView/LoginView";
+import Footer from "./Components/Footer";
 
 const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
 
@@ -19,7 +20,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App" />
-      <RegisterView />
+      <Footer />
     </Provider>
   );
 }
