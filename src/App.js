@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
 import GraphCanvas from './Components/Graph'
-import MainViews from "./Views/MainView/MainViews";
-import LoginView from './Views/LoginView/LoginView';
-import RegisterView from './Views/RegisterView/RegisterView';
-// import SleepView from './Views/SleepView';
+import MainViews from "./Views/MainView/";
+import LoginView from './Views/LoginView/';
+import RegisterView from './Views/RegisterView/';
+import SleepView from './Views/SleepsView';
 import TrackerInput from './Components/Trackers/TrackerLogInput';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
