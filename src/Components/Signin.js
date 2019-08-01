@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 `;
 
 const FormDiv = styled.div`
@@ -50,6 +51,7 @@ const LabelText = styled.p`
   color: #100359;
   margin-bottom: 0;
   font-weight: 500;
+  margin: 10px 0 10px 0;
 `;
 
 const SignButtonsDiv = styled.div`

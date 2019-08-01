@@ -11,6 +11,7 @@ import Sleeps from "./Components/SleepList/Sleeps";
 import MoodSlider from "./Components/SleepList/MoodSlider";
 import MainViews from "./Views/MainView/MainViews";
 import RegisterView from "./Views/RegisterView/RegisterView";
+import LoginView from "./Views/LoginView/LoginView";
 
 const store = createStore(combinedReducers, {}, applyMiddleware(ReduxThunk));
 
