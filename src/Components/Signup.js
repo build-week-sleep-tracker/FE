@@ -12,13 +12,13 @@ const FormDiv = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #e5e1f9;
-  width: 80%;
+  width: 80vw;
   height: 75vh;
   border: 1px solid #e5e1f9;
 `;
 
 const Form = styled.form`
-  width: 80%;
+  width: 80vw;
 `;
 
 const Title = styled.h1`

@@ -10,16 +10,18 @@ import Lightbulb from '../../images/Lightbulb.svg';
 
 const Container = styled.div`
 height: 40rem;
-width: 100%;
-border: 1px solid black;
+width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 `
 const LogSleep = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 6;
+
 text-align: center;
 background-color:#BFB6F1;
 font-size: 30px;
@@ -31,8 +33,11 @@ color: ##100359;
 `
 const Alarm = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 5;
+
 text-align: center;
 background-color:#9D90EA;
 font-size: 30px;
@@ -44,8 +49,11 @@ color: ##100359;
 `
 const SleepQ = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 4;
+
 text-align: center;
 background-color: #6F5BE0
 color: white;
@@ -57,8 +65,11 @@ justify-content: center
 `
 const Moods = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 3;
+
 text-align: center;
 background-color: #4D35D4
 color: white;
@@ -70,8 +81,11 @@ justify-content: center
 `
 const Devices = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 2;
+
 text-align: center;
 background-color:#3421A1
 color: white;
@@ -83,8 +97,11 @@ justify-content: center
 `
 const Insights = styled.div`
 height: 30rem;
-width: 100%;
-border 1px solid black;
+width: 100vw;
+
+box-shadow: 0px 2px 2px -1px rgba(16,3,89,1);
+z-index: 1;
+
 text-align: center;
 background-color:#100359
 color: white;
