@@ -12,6 +12,7 @@ import SleepView from './Views/SleepView'; */
 import TrackerInput from './Components/SleepList/TrackerLogAdd';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './Styling/theme';
+import SignIn from './Components/Signin';
 import Cookies from 'universal-cookie';
 
 const store = createStore(
@@ -46,7 +47,7 @@ function App() {
           <Route path='/login' component={LoginView} />
           <Route path='/register' component={RegisterView} />
           <PrivateRoute path='/sleeps' component={SleepView} /> */}
-          <TrackerInput />
+          <SignIn />
         </MuiThemeProvider>
       </Router>
     </Provider>

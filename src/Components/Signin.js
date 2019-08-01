@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from 'react-redux';
+import { login } from '../Actions/creators';
 
 const Wrapper = styled.div`
   display: flex;
@@ -98,20 +100,36 @@ const SignInButton = styled.button`
   color: #0a3f61;
 `;
 
-export default function Signin() {
+export function Signin(props) {
+  const emailRef = React.createRef();
+  const passwordRef = React.createRef();
+  const loginAction = (e) => {
+    e.preventDefault();
+    props.login(emailRef.current.value, passwordRef.current.value);
+  }
   return (
     <Wrapper>
       <FormDiv>
         <Title>Welcome to Sleep Tracker!</Title>
-        <Form>
+        <Form onSubmit={loginAction}>
           <TextFields>
             <InputDiv>
               <LabelText>Email</LabelText>
-              <Input />
+              <Input
+                type="text"
+                placeholder="Email..."
+                name="email"
+                ref={emailRef}
+              />
             </InputDiv>
             <InputDiv>
               <LabelText>Password</LabelText>
-              <Input />
+              <Input 
+                type="password"
+                placeholder="Password..."
+                name="password"
+                ref={passwordRef}
+              />
             </InputDiv>
           </TextFields>
           <SignButtonsDiv>
@@ -128,3 +146,10 @@ export default function Signin() {
     </Wrapper>
   );
 }
+
+export default connect(
+  () => {},
+  {
+    login
+  }
+)(Signin);
