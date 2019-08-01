@@ -80,7 +80,7 @@ export const deleteSleep = (id) => dispatch => {
 
 export const login = (email, password) => dispatch => {
   const body = { email, password };
-  return axios.post(CreateAPIUrl('login'), body)
+  return axiosWithAuth().post(CreateAPIUrl('login'), body)
     .then(res => {
       dispatch(setUser(res.data));
     })
@@ -91,7 +91,7 @@ export const login = (email, password) => dispatch => {
 
 export const register = (email, password, firstName, lastName) => dispatch => {
   const body = { email, password, first_name: firstName, last_name: lastName };
-  return axios.post(CreateAPIUrl('register'), body)
+  return axiosWithAuth().post(CreateAPIUrl('register'), body)
     .then(res => {
       dispatch(setUser(res.data));
     })
