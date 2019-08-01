@@ -6,18 +6,18 @@ const FlexWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #BFB6F1;
+    background-color: #E5E1F8;
 `
 
 const GraphWrapper = styled.div`
     width: 90vw;
-    background-color: #BFB6F1;
+    background-color: #E5E1F8;
     margin-left: 5vw;
 `
 const GraphTitle = styled.div`
     text-align: center;
     justify-content: center;
-    background-color: #BFB6F1;
+    background-color: #E5E1F8;
 `
 
 export default function GraphCanvas(){
@@ -87,7 +87,7 @@ export default function GraphCanvas(){
         <div>
             <FlexWrapper>
                 <GraphTitle>
-                    <h2>Hours Slept</h2>
+                    <h3>Hours Slept</h3>
                     <h4>7/5 - 7/15</h4>
                 </GraphTitle>
                 <GraphWrapper>
