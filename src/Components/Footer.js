@@ -17,7 +17,7 @@ const TextWrapper = styled.div`
 
 const Text = styled.p`
   color: #fff;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin: 0 10px;
 `;
 
