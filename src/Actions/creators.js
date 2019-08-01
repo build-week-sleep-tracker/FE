@@ -41,6 +41,7 @@ export const proccessSleeps = (sleeps) => {
     newSleep.date = new Date(sleep.sleep_time);
     newSleeps.push(newSleep);
   });
+  return newSleeps;
 }
 
 export const fetchSleeps = () => dispatch => {
@@ -60,6 +61,24 @@ export const setCurrentSleep = (id) => {
     type: types.SET_CURRENT_SLEEP,
     payload: id,
   }
+}
+
+export const setRecommendedSleep = (rec) => {
+  return {
+    type: types.SET_RECOMMENDED_SLEEP,
+    payload: rec,
+  }
+}
+
+export const getRecommendedSleep = () => dispatch => {
+  return axiosWithAuth()
+    .get(CreateAPIUrl('sleep/recommended'))
+    .then((res) => {
+      dispatch(setRecommendedSleep(res.data.recommended));
+    })
+    .catch(error => {
+      dispatch(setError(error.message));
+    });
 }
 
 export const addSleep = (fields) => dispatch => {

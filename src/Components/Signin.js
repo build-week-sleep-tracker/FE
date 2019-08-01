@@ -153,7 +153,7 @@ export function Signin(props) {
 }
 
 export default connect(
-  () => {},
+  null,
   {
     login
   }

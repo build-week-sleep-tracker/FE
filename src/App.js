@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import combinedReducers from './Reducers';
@@ -17,7 +17,10 @@ import SignIn from './Components/Signin';
 const store = createStore(
   combinedReducers,
   {},
-  applyMiddleware(thunk)
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 );
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
