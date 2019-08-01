@@ -101,22 +101,10 @@ export default function Titles() {
         <img src={Bed} />
         <h3>Sleep Log</h3>
       </LogSleep>
-      <Alarm>
-        <img src={Clock} />
-        <h3>Alarm</h3>
-      </Alarm>
-      <SleepQ>
-        <img src={Star} />
-        <h3>Sleep Quality</h3>
-      </SleepQ>
       <Moods>
         <img src={Face} />
         <h3>Moods</h3>
       </Moods>
-      <Devices>
-        <img src={Device} />
-        <h3>Devices</h3>
-      </Devices>
       <Insights>
         <img src={Lightbulb} />
         <h3>Insights</h3>
