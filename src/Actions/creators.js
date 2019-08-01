@@ -80,9 +80,10 @@ export const deleteSleep = (id) => dispatch => {
 
 export const login = (email, password) => dispatch => {
   const body = { email, password };
-  return axiosWithAuth().post(CreateAPIUrl('login'), body)
+  return axios.post(CreateAPIUrl('login'), body)
     .then(res => {
-      dispatch(setUser(res.data));
+      dispatch(setUser(res.data.user));
+      localStorage.setItem('token', res.data.token)
     })
     .catch(error => {
       dispatch(setError(error.message));
@@ -91,9 +92,10 @@ export const login = (email, password) => dispatch => {
 
 export const register = (email, password, firstName, lastName) => dispatch => {
   const body = { email, password, first_name: firstName, last_name: lastName };
-  return axiosWithAuth().post(CreateAPIUrl('register'), body)
+  return axios.post(CreateAPIUrl('register'), body)
     .then(res => {
-      dispatch(setUser(res.data));
+      dispatch(setUser(res.data.user));
+      localStorage.setItem('token', res.data.token)
     })
     .catch(error => {
       dispatch(setError(error.message));

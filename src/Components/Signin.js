@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { connect } from 'react-redux';
 import { login } from '../Actions/creators';
@@ -105,8 +105,18 @@ export function Signin(props) {
   const passwordRef = React.createRef();
   const loginAction = (e) => {
     e.preventDefault();
-    props.login(emailRef.current.value, passwordRef.current.value);
+    props.login(emailRef.current.value, passwordRef.current.value)
+      .then(() => {
+        props.history.push('/');
+      })
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      props.history.push('/');
+    }
+  }, []);
+
   return (
     <Wrapper>
       <FormDiv>
