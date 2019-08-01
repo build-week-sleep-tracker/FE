@@ -2,12 +2,9 @@ import { combineReducers } from 'redux';
 import * as types from '../Actions/types';
 
 const sleepState = {
-  sleeps: [
-    {
-      id: 1,
-      sleep_time: '2008-09-15T15:53:00',
-    }
-  ],
+  sleeps: [],
+  currentSleep: 0,
+  recommendedSleep: 0,
 }
 
 const userState = {
@@ -23,6 +20,10 @@ export function sleepsReducer(state = sleepState, action) {
   switch(action.type) {
     case(types.SET_SLEEPS):
       return { ...state,  sleeps: action.payload};
+    case(types.SET_CURRENT_SLEEP):
+      return { ...state, currentSleep: action.payload };
+    case(types.SET_RECOMMENDED_SLEEP):
+      return { ...state, recommendedSleep: action.payload }
     default:
       return state;
   }
